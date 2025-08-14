@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/data/models/user.dart';
+import 'package:ecommerceapp/presentation/pages/order_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -56,9 +57,15 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 300),
-        child: idx == 0 ? const ProductListPage() : const CartPage(),
+        child:
+            idx == 0
+                ? const ProductListPage()
+                : idx == 1
+                ? const CartPage()
+                : const OrderListPage(),
       ),
       drawer: Drawer(
         child: SafeArea(
@@ -83,7 +90,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: idx,
         onDestinationSelected: (i) => setState(() => idx = i),
-        destinations: const [
+        destinations: [
           NavigationDestination(
             icon: Icon(Icons.storefront_outlined),
             label: 'Shop',
@@ -91,6 +98,10 @@ class _HomePageState extends State<HomePage> {
           NavigationDestination(
             icon: Icon(Icons.shopping_bag_outlined),
             label: 'Cart',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'my orders',
           ),
         ],
       ),

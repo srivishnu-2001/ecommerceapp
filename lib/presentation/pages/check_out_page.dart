@@ -25,6 +25,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Checkout'), centerTitle: true),
+
       body:
           cart.items.isEmpty
               ? const Center(child: Text('Your cart is empty'))
@@ -159,6 +160,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
           cart.items
               .map(
                 (item) => {
+                  'id': item.product.id,
+                  'image': item.product.thumbnail,
                   'title': item.product.title,
                   'price': item.product.price,
                   'qty': item.qty,

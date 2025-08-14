@@ -126,7 +126,10 @@ class _ProductListPageState extends State<ProductListPage> {
                 padding: const EdgeInsets.all(10),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: cross,
-                  childAspectRatio: 0.50,
+                  childAspectRatio:
+                      MediaQuery.of(context).size.width < 600
+                          ? 0.50 // mobile
+                          : 0.70, // laptop/desktop
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                 ),

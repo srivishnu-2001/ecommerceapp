@@ -6,7 +6,7 @@ class ProductApiService {
 
   // Array of all category URLs
   static const List<String> allCategoryUrls = [
-    'https://dummyjson.com/products?limit=200',
+    'https://dummyjson.com/products/category/all?limit=200',
     'https://dummyjson.com/products/category/smartphones?limit=200',
     'https://dummyjson.com/products/category/laptops?limit=200',
     'https://dummyjson.com/products/category/fragrances?limit=200',
